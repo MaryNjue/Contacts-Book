@@ -7,6 +7,12 @@ const useContactStore = create((set)=>({contacts : [],
     deleteContact: (index) => set((state) => ({
         contacts: state.contacts.filter((_, i) => i !== index), 
       })),
+      updateContact: (index, updatedContact) =>
+        set((state) => ({
+          contacts: state.contacts.map((contact, i) =>
+            i === index ? updatedContact : contact
+          )
+        })),
 }));
 
 export default useContactStore;
