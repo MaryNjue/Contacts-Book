@@ -2,6 +2,7 @@ import useContactStore from "./contactEvents";
 
 const ContactList =() =>{
     const contacts = useContactStore((state) =>state.contacts);
+    const deleteContact = useContactStore((state) => state.deleteContact);
     return(
         <div>
             <h1>Your Contacts</h1>
@@ -17,7 +18,7 @@ const ContactList =() =>{
                             {contacts.image && (
                                 <img src={URL.createObjectURL(contacts.image)} alt={contacts.FirstName} width="100" />
                             )}
-
+ <button onClick={() => deleteContact(index)}>Delete</button>
                         </li>
                         ))}
                     </ul>
